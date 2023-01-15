@@ -1,0 +1,53 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<div th:if="${message}">
+    <h2 th:text="${message}"/>
+</div>
+
+<div>
+    <form action="/" enctype="multipart/form-data" method="POST">
+        <table>
+            <tr>
+                <td>File to upload:</td>
+                <td>
+                    <input accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,
+            application/vnd.ms-excel" id="file" name="file" type="file"/>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Upload"/></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<div>
+    <p>Results:</p>
+    <table>
+        <thead>
+        <tr>
+            <th> EmplId1</th>
+            <th> EmplId2</th>
+            <th> ProjectID</th>
+            <th> Days Worked</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--<tr th:if="${pairs.empty}">
+            <td colspan="4"> No Pairs Available </td>
+        </tr>-->
+        <tr th:each="pair : ${pairs}">
+            <td><span th:text="${pair.firstEmp.employeeId}">  </span></td>
+            <td><span th:text="${pair.secondEmp.employeeId}">  </span></td>
+            <td><span th:text="${pair.firstEmp.projectId}">  </span></td>
+            <td><span th:text="${pair.daysWorkingTogether}">  </span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
