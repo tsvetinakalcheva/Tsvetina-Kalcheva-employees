@@ -1,47 +1,58 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<div th:if="${message}">
-    <h4 th:text="${message}"/>
-</div>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot & Thymeleaf File Upload</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
 
-<div>
-    <form action="/" enctype="multipart/form-data" method="POST">
-        <table>
-            <tr>
-                <td style="text-align:center;">File to upload:</td>
-                <td>
-                    <input accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,
-            application/vnd.ms-excel" id="file" name="file" type="file"/>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td style="text-align:center;"><input type="submit" value="Upload"/></td>
-            </tr>
-        </table>
-    </form>
-</div>
+<body>
+<section class="my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div>
+                    <form action="/" enctype="multipart/form-data" method="POST">
+                        <h2>Upload File</h2>
+                        <div class="form-group">
+                            <input accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,
+            application/vnd.ms-excel" id="file" name="file" type="file" enctype="multipart/form-data"/>
+                        </div>
 
-<div>
-    <h4>Results:</h4>
-    <table class="result">
-        <thead>
-        <tr>
-            <th> Employee ID #1</th>
-            <th> Employee ID #2</th>
-            <th> Project ID</th>
-            <th> Days Worked</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="pair : ${pairs}">
-            <td><span th:text="${pair.firstEmp.employeeId}">  </span></td>
-            <td><span th:text="${pair.secondEmp.employeeId}">  </span></td>
-            <td><span th:text="${pair.firstEmp.projectId}">  </span></td>
-            <td><span th:text="${pair.daysWorkingTogether}">  </span></td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+                        <input type="submit" class="btn btn-primary" value="Upload"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+
+                <h4>Results:</h4>
+                <table class="result">
+                    <thead>
+                    <tr>
+                        <th style="border: 1px solid;padding: 10px; text-align: center"> Employee ID #1</th>
+                        <th style="border: 1px solid; padding: 10px; text-align: center"> Employee ID #2</th>
+                        <th style="border: 1px solid; padding: 10px; text-align: center"> Project ID</th>
+                        <th style="border: 1px solid; padding: 10px; text-align: center"> Days Worked</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="pair : ${pairs}">
+                        <td style="border: 1px solid; text-align: center"><span th:text="${pair.firstEmp.employeeId}"> 1 </span></td>
+                        <td style="border: 1px solid; text-align: center"><span th:text="${pair.secondEmp.employeeId}"> 2 </span></td>
+                        <td style="border: 1px solid; text-align: center"><span th:text="${pair.firstEmp.projectId}"> 3 </span></td>
+                        <td style="border: 1px solid; text-align: center"><span th:text="${pair.daysWorkingTogether}">4  </span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
 
 </body>
 </html>
