@@ -1,14 +1,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-
 <div th:if="${message}">
-    <h6 th:text="${message}"/>
+    <h4 th:text="${message}"/>
 </div>
 
 <div>
     <form action="/" enctype="multipart/form-data" method="POST">
         <table>
             <tr>
-                <td>File to upload:</td>
+                <td style="text-align:center;">File to upload:</td>
                 <td>
                     <input accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,
             application/vnd.ms-excel" id="file" name="file" type="file"/>
@@ -16,7 +15,7 @@
             </tr>
             <tr>
                 <td></td>
-                <td><input type="submit" value="Upload"/></td>
+                <td style="text-align:center;"><input type="submit" value="Upload"/></td>
             </tr>
         </table>
     </form>
@@ -24,7 +23,7 @@
 
 <div>
     <h4>Results:</h4>
-    <table>
+    <table class="result">
         <thead>
         <tr>
             <th> Employee ID #1</th>
