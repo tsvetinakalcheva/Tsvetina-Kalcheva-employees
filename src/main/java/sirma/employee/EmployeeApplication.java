@@ -12,10 +12,4 @@ public class EmployeeApplication {
     public static void main(String[] args) {
         SpringApplication.run(EmployeeApplication.class, args);
     }
-	/*//@Bean
-	CommandLineRunner init(EmployeeService employeeService) {
-		return (args) -> {
-			employeeService.init();
-		};
-	}*/
 }

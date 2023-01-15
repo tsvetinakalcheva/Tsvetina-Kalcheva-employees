@@ -27,6 +27,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         this.rootLocation = Paths.get(properties.getLocation());
     }
 
+    /**
+     * store method reads the file and save the data in Map
+     * @param file
+     */
     @Override
     public void store(MultipartFile file) {
 
@@ -63,15 +67,18 @@ public class EmployeeServiceImpl implements EmployeeService {
         return rootLocation.resolve(filename);
     }
 
-
+    /**
+     * Returns a list of output data
+     * @return
+     */
     @Override
     public List<EmployeePair> getPairs() {
         return this.employeesMap.entrySet().stream().flatMap(entry ->
                 results(entry.getValue()).stream()).toList();
     }
 
-    @Override
-    public List<EmployeePair> results(List<Employee> employees) {
+
+    private List<EmployeePair> results(List<Employee> employees) {
         List<EmployeePair> pairs = new ArrayList<>();
         for (Employee e1 : employees) {
             for (Employee e2 : employees) {
@@ -89,8 +96,8 @@ public class EmployeeServiceImpl implements EmployeeService {
         return pairs;
     }
 
-    @Override
-    public long pairEmployee(Employee e1, Employee e2) {
+
+    private long pairEmployee(Employee e1, Employee e2) {
         long days = 0;
         if (e1.getDateFrom().isAfter(e2.getDateTo()) || e2.getDateFrom().isAfter(e1.getDateTo())) {
             return days;

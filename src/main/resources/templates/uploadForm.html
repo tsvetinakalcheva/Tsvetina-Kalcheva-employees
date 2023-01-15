@@ -29,16 +29,13 @@
     <table>
         <thead>
         <tr>
-            <th> EmplId1</th>
-            <th> EmplId2</th>
-            <th> ProjectID</th>
+            <th> Employee ID #1</th>
+            <th> Employee ID #2</th>
+            <th> Project ID</th>
             <th> Days Worked</th>
         </tr>
         </thead>
         <tbody>
-        <!--<tr th:if="${pairs.empty}">
-            <td colspan="4"> No Pairs Available </td>
-        </tr>-->
         <tr th:each="pair : ${pairs}">
             <td><span th:text="${pair.firstEmp.employeeId}">  </span></td>
             <td><span th:text="${pair.secondEmp.employeeId}">  </span></td>
